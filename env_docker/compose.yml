@@ -1,0 +1,30 @@
+services:
+  cui-gsa:
+    build:
+      context: ..
+      dockerfile: env_docker/Dockerfile
+    container_name: grasping-state-assessment
+    network_mode: "host"
+    environment:
+      #- ROS_DOMAIN_ID=20
+      #- ROS_LOCALHOST_ONLY=0
+      #- RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      #- CYCLONEDDS_URI=file:///ros2_ws/cyclonedds_profile.xml
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ../grasping-state-assessment:/grasping-state-assessment
+    tty: true
+    stdin_open: true
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    #command: bash
+    command: bash
