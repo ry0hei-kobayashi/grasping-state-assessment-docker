@@ -1,0 +1,3 @@
+[submodule "grasping-state-assessment"]
+	path = grasping-state-assessment
+	url = https://github.com/ry0hei-kobayashi/grasping-state-assessment.git
