@@ -12,19 +12,22 @@ services:
       #- CYCLONEDDS_URI=file:///ros2_ws/cyclonedds_profile.xml
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
+      #- NVIDIA_VISIBLE_DEVICES=1 #A100 80GB 2nd
+      - NVIDIA_VISIBLE_DEVICES=MIG-78fe31ba-2187-5cfe-ac8b-433427112f22 #A100 40GB MIG
+      #- NVIDIA_VISIBLE_DEVICES=MIG-fe3895bf-a348-5909-b135-ee5531e1d393 #A100 40GB MIG
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ../grasping-state-assessment:/grasping-state-assessment
     tty: true
     stdin_open: true
 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    #deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: 1
+    #          capabilities: [gpu]
 
     #command: bash
     command: bash
