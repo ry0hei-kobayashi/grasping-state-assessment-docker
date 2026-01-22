@@ -39,13 +39,14 @@ ENV PATH="/my_env/bin:$PATH"
 RUN pip install --upgrade pip
 RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 RUN pip install numpy==1.26.4 \
-                 pandas \
-                 scikit-learn \
-                 matplotlib \
-                 pillow \
-                 opencv-python \
-                 deepdish \
-                 h5py 
+    pandas \
+    scikit-learn \
+    matplotlib \
+    pillow \
+    opencv-python \
+    deepdish \
+    h5py 
+RUN pip install nvidia-ml-py3
 
 
 
