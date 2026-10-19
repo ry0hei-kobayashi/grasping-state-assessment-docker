@@ -9,13 +9,13 @@ RUN apt-get update && apt-get install -y \
     git \
     wget \
     vim \
-    lsb-release \
-    build-essential \
-    cmake \
-    libgl1 \
-    libglib2.0-0 \
-    python3.12-venv \
-    python3-pip \
+#    lsb-release \
+#    build-essential \
+#    cmake \
+#    libgl1 \
+#    libglib2.0-0 \
+#    python3.12-venv \
+#    python3-pip \
     # python3-colcon-common-extensions \
     # python3-rosdep \
     # python3-pip \
@@ -33,20 +33,20 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # from python3.12, requires to setup pythonenv by venv
-RUN python3 -m venv /my_env
-ENV PATH="/my_env/bin:$PATH"
+#RUN python3 -m venv /my_env
+#ENV PATH="/my_env/bin:$PATH"
 
-RUN pip install --upgrade pip
-RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
-RUN pip install numpy==1.26.4 \
-    pandas \
-    scikit-learn \
-    matplotlib \
-    pillow \
-    opencv-python \
-    deepdish \
-    h5py 
-RUN pip install nvidia-ml-py3
+#RUN pip install --upgrade pip
+#RUN pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+#RUN pip install numpy==1.26.4 \
+#    pandas \
+#    scikit-learn \
+#    matplotlib \
+#    pillow \
+#    opencv-python \
+#    deepdish \
+#    h5py 
+#RUN pip install nvidia-ml-py3
 
 
 
@@ -57,7 +57,7 @@ RUN pip install nvidia-ml-py3
 
 WORKDIR /grasping-state-assessment
 
-COPY ./../grasping-state-assessment ./grasping-state-assessment
+#COPY ./../grasping-state-assessment ./grasping-state-assessment
 
 
 # RUN cd /ros2_ws && \
